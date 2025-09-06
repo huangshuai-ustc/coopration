@@ -1,0 +1,249 @@
+Human-AI Cognitive Interaction
+
+Trust Calibration in AI Systems
+
+Initial Trust Formation Mechanisms
+Trajectory of Trust Dynamics
+Overtrust vs. Distrust
+Trust Repair Mechanisms
+Domain-Specific Effects
+User Engagement and Trust Adjustment
+Perceived Cost of Trust Misalignment
+Trust Prediction Models in Multi-Round Tasks
+Trustworthiness Indicators Design
+
+Cognitive Offloading and Automation Bias
+
+AI-Guided vs. Self-Driven Decision-Making
+Post-Offloading Cognitive Decline
+Susceptibility to Automation Bias
+Formation of Dependency Habits
+Risk-Driven Offloading
+Offloading and Feedback Loops
+Error Detection Impairment
+Task Switching and Cognitive Load Distribution
+Assistance vs. Replacement Boundary Awareness
+
+
+Explainability and Interpretability of AI
+
+Types of Explanation Tools
+User Explanation Preferences
+Presentation Modes
+Information Overload from Over-Explanation
+Explainability vs. Accuracy Trade-Off
+Adaptive Explanation Mechanisms
+Trust Enhancement through Explanation
+Explanation-Induced Error Correction
+Shifts in Accountability Due to Explanation
+
+Decision Confidence and Meta-Cognition
+
+Self-Confidence vs. AI Confidence
+Uncertainty Presentation and Meta-Cognitive Regulation
+Alignment of AI Confidence with Human Judgment
+Enhancing the “I Know I Don’t Know” Capability
+Performance Feedback and Meta-Cognitive Growth
+Non-Linear Relationship Between Meta-Cognition and Performance
+Post-Decision Correction Behavior
+Individual Differences in Meta-Cognitive Capacity
+Co-Construction of Confidence
+
+Emotional Reactions to AI Errors
+
+Error Type and Emotional Mapping
+High Expectation – High Disappointment Effect
+Emotion as Mediator in Trust Breakdown
+Individual Emotion Regulation as a Buffer
+Efficacy of Post-Error Mitigation Strategies
+Attribution of Emotional Response
+Emotional Memory Effects
+Affective Contagion vs. Emotional Containment
+Emotional Fluctuation Across Interactions
+
+
+Trust, Ethics, and Social Acceptance
+
+Human-AI Trust Formation and Breakdown
+
+Sources of Initial Trust
+Trust Accumulation Mechanisms
+Abrupt Trust Violations
+User Reactions to Trust Breakdown
+Comparing Trust Repair Strategies
+Impact of Task Risk on Trust Tolerance
+Trust Rebound vs. Trust Transfer
+Multimodal Trust Signaling
+Cultural Differences in Trust Dynamics
+
+Algorithm Aversion and Algorithm Appreciation
+
+Psychological Basis of Algorithm Aversion
+Pathways to Algorithm Appreciation
+Error Sensitivity and Trust Tolerance
+Domain-Specific Acceptance
+Impact of Authority Endorsement
+Transparency as a Moderator of Acceptance
+User-Type Differences
+Control and Algorithmic Attitudes
+Social Norm Influence
+
+Ethical Implications of AI Decision-Making
+
+Detection and Reaction to Algorithmic Bias
+Perceptions of Fairness
+Privacy Concerns and Usage Intentions
+Individual Differences in Ethical Boundaries
+Transparency of Ethical Frameworks
+Moral Ambiguity in Complex Situations
+Cross-Cultural Ethical Conflicts
+Acceptance of Ethical Auditing Mechanisms
+Responsibility Attribution for Unethical AI Behavior
+
+Perceived Control and Agency in AI-Assisted Decisions
+
+Sense of Control in Decision-Making
+Interface Design and Perceived Authority
+Mandatory Recommendations vs. Optional Advice
+Autonomy and User Satisfaction
+Depth of AI Involvement
+Individual Differences in Desire for Control
+Perceptions of Role Allocation in Joint Decisions
+Customizability of System Feedback
+Collapse of Control and Disengagement
+
+Accountability and Transparency in AI Governance
+
+Responsibility Attribution Preferences
+Link Between Accountability and Trust
+Anxiety from “Black Box” Decisions
+Auditable Decision Mechanisms
+Acceptance of Shared Responsibility Models
+Optimal Transparency Thresholds
+Access vs. Comprehensibility
+Corporate Legal and Moral Responsibility
+Support for Algorithm Rating or Blacklist Systems
+
+AI Effectiveness and Management Practices
+
+AI-Supported Operational Decision-Making
+
+AI-based Scheduling Optimization
+Inventory Forecasting with AI
+Predictive Maintenance using AI
+AI in Supply Chain Coordination
+Warehouse Operations Optimization
+AI-Driven Forecasting Accuracy
+Performance Benchmarks for AI in Operations
+AI for Resource Allocation
+Scalability of Operational AI Systems
+
+Strategic vs. Tactical AI Use in Organizations
+
+AI in Strategic Planning
+AI in Tactical Execution
+Temporal Framing of AI Recommendations
+Organizational Alignment of AI Objectives
+Risk Appetite Across Strategic vs. Tactical AI
+Speed-Accuracy Tradeoffs at Different Levels
+Inter-Departmental AI Coordination
+Adaptive Learning in Strategic AI
+Scenario Planning with AI Support
+
+Performance Trade-offs: Speed, Accuracy, and Cost
+
+Speed vs. Accuracy Dilemma
+AI Decision Cost Models
+Latency-Tolerant vs. Latency-Critical Applications
+Approximate Algorithms for Real-Time Use
+AI Performance Under Resource Constraints
+Accuracy Plateau and Diminishing Returns
+Model Complexity vs. Interpretability
+Cost-Aware Model Selection
+Sustainability and Energy Trade-offs
+
+Organizational Readiness and AI Adoption
+
+Technological Infrastructure for AI
+Cultural Readiness and Mindset
+Workforce AI Literacy
+Leadership Support and Vision
+Cross-Functional AI Teams
+Data Governance and Availability
+Internal vs. External AI Development
+Adoption Metrics and Success Criteria
+Organizational Barriers to AI Use
+
+Human-in-the-Loop Decision Systems
+
+Joint Human-AI Decision Models
+Role Allocation Between Human and AI
+Transparency in Human-AI Collaboration
+Error Detection and Correction Mechanisms
+Trust Calibration in Shared Decisions
+Interface Design for Hybrid Systems
+Accountability Distribution Models
+Real-Time Coordination Protocols
+Measuring Effectiveness of Human-AI Teams
+
+Individual and Psychological Mechanisms
+
+Personality Traits and AI Reliance
+
+Openness to Experience and AI Exploration
+Neuroticism and Risk-Averse AI Use
+Conscientiousness and Rule-Based AI Interaction
+Extraversion and Social AI Acceptance
+Agreeableness and Trust Propensity
+Locus of Control and AI Delegation
+Impulsivity and Automation Bias
+Trait Epistemic Curiosity and Explanation Seeking
+Personality-AI Fit Perception
+
+Expertise, Domain Knowledge and AI Overtrust
+
+Calibration of Trust in Experts vs. Novices
+Expert Overreliance on Domain-Specific AI
+Layperson Vulnerability to Illusory AI Authority
+Metacognitive Monitoring in Experts
+Training-Induced Trust Regulation
+Decision Audit Behavior by Professionals
+Mismatch Between AI Output and Domain Mental Models
+Trust Anchoring in Past Performance
+Deference in Ambiguous or High-Complexity Tasks
+
+Risk Perception and AI Trust
+
+Perceived Task Criticality and AI Avoidance
+High-Stakes Risk Amplification of AI Errors
+Low-Risk Contexts and Automation Comfort
+Risk Aversion Personality and Delegation Behavior
+AI Risk Communication Framing
+Risk Normalization Through Exposure
+Insurance and Liability Framing in Risky AI Use
+Trust-Risk Asymmetry
+Individual vs. Shared Risk Perception
+
+Framing Effects in AI Recommendations
+
+Gain vs. Loss Framing of AI Advice
+Default Framing and Opt-In/Opt-Out Decisions
+Certainty vs. Probability Language
+Authority Tone vs. Collaborative Tone
+Personalization and Self-Relevance Framing
+Emotionally Charged Language Framing
+Explanation Framing: Causal vs. Statistical
+Temporal Framing in Recommendations
+Trust Framing through Source Disclosure
+
+Social Influence and Norms in AI Use
+
+Descriptive Norms: “What Others Are Doing”
+Injunctive Norms: “What Others Approve”
+Peer Influence on AI Trust
+Organizational Culture and AI Acceptance
+Authority and Supervisor Endorsement
+Social Identity and Group-Based AI Use
+Fear of Judgement for Non-Use or Overuse
+AI Usage as a Status Symbol
+Collective Trust Calibration Mechanisms

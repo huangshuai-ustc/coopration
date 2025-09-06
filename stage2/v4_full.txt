@@ -1,0 +1,141 @@
+Please perform two tasks based on the following article content:
+1. **Type determination** : Determine whether the article belongs to one or more of the following categories, based on whether my input mentions or is related to the following categories and descriptions.
+  - cognitive_offload: Delegate memory or computational tasks to AI to reduce human burden
+  - information_processing_aid: AI helps integrate and analyze a large amount of information
+  - decision_heuristics: Rely on simplified rules provided by AI to make decisions
+  - bias_mitigation_amplification: AI may alleviate or amplify human cognitive biases
+  - ambiguity_reduction: AI provides clarification under uncertain information
+  - situation_awareness: AI enhances overall understanding of the environment or task
+  - cognitive_load_management: AI regulates cognitive load through prompting/support
+  - bounded_rationality: The limitations of making decisions with limited information and abilities
+  - anchoring_adjustment: Decision is influenced and adjusted by the initial anchor point
+  - error_probability_estimation: Estimation of risk and error probability
+  - preference_learning: AI learns and predicts user preferences
+  - mind_perception: People endow AI with the perception of mind or intention
+  - cognition_emotion_interaction: The interaction between emotions and cognition in decision-making
+  - human_ai_interaction: The interaction process between humans and AI
+  - human_machine_teaming: Human machine collaboration as a team to complete tasks
+  - cooperation_competition_dynamics: Cooperation and competition between humans and machines
+  - delegated_decision_making: Delegate some or all decisions to AI
+  - responsibility_allocation: Responsibility attribution and accountability allocation between humans and machines
+  - trust_calibration: Dynamically adjust trust in AI based on information or performance
+  - trust_dynamics: The process of trust evolving over time and experience
+  - trust_miscalibration: Excessive or insufficient trust in AI
+  - trust_repair_strategies: Ways to repair trust after AI errors
+  - algorithmic_attitudes: Appreciation, preference, or rejection attitude towards algorithms
+  - automation_bias: Excessive reliance on automation recommendations
+  - uncertainty_communication: Transmitting uncertainty information of AI
+  - perceived_fairness: User perception of fairness in AI decision-making
+  - value_alignment: Are AI goals aligned with human values
+  - social_presence: The social presence demonstrated by AI in interaction
+  - anthropomorphism_effects: The effect of viewing AI as a humanoid individual
+  - levels_of_autonomy: Autonomous control allocation of human-machine at different levels
+  - adaptive_automation: AI dynamically adjusts automation level based on context
+  - automation_transparency: Is the AI decision-making process transparent and interpretable
+  - error_recovery_support: AI provides error repair or remedial support
+  - interaction_fluency: Is human-computer interaction natural and smooth
+  - coordination_ability: The ability of AI to coordinate within a team
+  - team_shared_awareness: Joint situational awareness between team members and AI
+  - feedback_loops: A cyclic mechanism that influences trust or decision-making through feedback
+  - task_crafting: Users redefine task methods based on AI
+  - negative_work_rumination: Repeatedly reflecting on negative experiences in AI or tasks
+  - approach_avoidance_dynamics: User's tendency to approach or avoid AI
+  - ai_empathy_dynamics: Empathy demonstrated by AI and user perception of it
+  - emotion_recognition: AI recognizes human emotions or imitates emotional expressions
+  - affective_transition: The transfer effect of emotions between AI and humans
+  - stress_anxiety_regulation: AI helps alleviate stress and anxiety
+  - motivation_engagement: AI stimulates user motivation and engagement
+  - psychological_safety: User's sense of security in interacting with AI
+  - self_efficacy: Individual self-efficacy supported by AI
+  - agency_restoration: User regain control and autonomy
+  - moral_agency: The moral responsibility of AI or human-machine in decision-making
+  - responsibility_gap: The gap of ambiguous responsibility in human-machine joint decision-making
+  - ethical_dissonance: The conflict between AI decision-making and human ethics
+  - ai_threat_perceptions: User perception of potential threats from AI
+  - psychological_expansion: AI helps expand users' psychological or cognitive abilities
+
+
+2. **Level determination**:
+   Please determine the level of the category to which the current article belongs, and divide it into "high", "medium", and "low" from high to low. If there are multiple categories, provide the categories and corresponding levels separately.
+  - Cognitive_offload: ['High: Almost completely dependent on AI processing tasks', 'Medium: Partially dependent (auxiliary+autonomous combination)', 'Low: Fully autonomous']
+  - Information_decessing  - aid: ['High: AI significantly improves understanding/integration speed ',' Medium: AI assistance is limited ',' Low: No help or increases complexity ']
+  - Decision_ceuristic: ['High: Highly dependent on AI to provide shortcuts', 'Medium: Combining heuristics and rationality', 'Low: Strict rationality']
+  - Bias_mitigation_mamplification: ['High: AI significantly reduces/amplifies bias', 'Medium: limited impact', 'Low: no effect']
+  - Ambiguity Reduction: ['High: AI explicitly reduces uncertainty ',' Medium: partially clarifies', 'Low: still ambiguous']
+  - Situation  - awareness: ['High: Significant improvement in environmental understanding ',' Medium: Limited improvement ',' Low: No help or reduced perception ']
+  - Cognitive  - load_management: ['High: significantly reduces cognitive burden ',' Medium: partially alleviates', 'Low: burden maintenance or increase']
+  - Bounded  - rationality: ['High: severely constrained decision ',' Medium: partially constrained ',' Low: approaching rationality ']
+  - AnchoringAdjustment: ['High: Clearly affected by initial anchor point ',' Medium: Partial adjustment ',' Low: Independent judgment ']
+  - Error probability estimation: ['High: able to accurately estimate risk ',' Medium: rough estimate ',' Low: lack of risk awareness']
+  - Preference_learning: ['High: AI/human preference for fast learning ',' Medium: limited learning ',' Low: no learning ']
+  - Mind  - perception: ['High: strongly believes that AI has a mind ',' Medium: partially endows features', 'Low: completely as a tool']
+  - Cognitive  - emotion  - interaction: ['High: Strong emotional influence on decision  - making ',' Medium: Partial influence ',' Low: Independent of emotions']
+  - Human_ai_interaction: ['High: frequent and deep interaction ',' Medium: occasional interaction ',' Low: almost no interaction ']
+  - Human_machine_ teaming: ['High: highly collaborative and complementary ',' Medium: limited collaboration ',' Low: no sense of teamwork ']
+  - Cooperation_compatition  - d ynamics: ['High: Significant impact of cooperation/competition ',' Medium: Partial impact ',' Low: No effect ']
+  - Delegated_decision_making: ['High: heavily delegated AI ',' Medium: partially delegated ',' Low: completely autonomous']
+  - Responsibility_allocation: ['High: clear and reasonable responsibility ',' Medium: partially vague ',' Low: unclear or evasive ']
+  - Trust_calibration: ['High: Precise dynamic adjustment of trust ',' Medium: Limited adjustment ',' Low: No adjustment ']
+  - Trust_rynamics: ['High: trust fluctuates significantly over time ',' Medium: small changes', 'Low: stable and unchanged']
+  - Trust_ciscalibration: ['High: Clearly excessive/insufficient trust ',' Medium: Mild mismatch ',' Low: Trust matching ']
+  - Trust_depair_Strategies: ['High: Effectively fixes trust ',' Medium: Partially fixes', 'Low: Fix failed']
+  - Algorithmic Attitudes: ['High: Strong Appreciation or Exclusion ',' Medium: Neutral Attitude ',' Low: Weak Attitude ']
+  - Automation  - bias: ['High: blindly following AI suggestions', 'Medium: partial dependencies',' Low: independent judgment ']
+  - Uncertainty_communication: ['High: Clearly Convey Uncertainty ',' Medium: Partially Convey ',' Low: Opaque ']
+  - Perceived_fairness: ['High: strongly perceived fairness', 'Medium: generally fair', 'Low: unfair']
+  - Value_alignment: ['High: highly consistent target ',' Medium: partially consistent ',' Low: severe conflict ']
+  - Sociopresence: ['High: Strong Presence ',' Medium: Limited Presence ',' Low: Almost None ']
+  - Anthropomorphism effects: ['High: Strongly endowing humanoid traits', 'Medium: Limited endowing', 'Low: Utilized']
+  - Levels_of_ autonomy: ['High: AI fully controlled ',' Medium: shared control ',' Low: human fully controlled ']
+  - Adaptive_automation: ['High: Highly Adaptive ',' Medium: Limited Adaptive ',' Low: Fixed ']
+  - Automation  - transparency: ['High: Transparent Decision Process', 'Medium: Partially Transparent', 'Low: Black Box']
+  - Erre_recovery_Support: ['High: Effectively fixes errors', 'Medium: Limited support', 'Low: No support']
+  - Interaction_fluency: ['High: Smooth and Natural ',' Medium: Occasionally Smooth ',' Low: Stuck ']
+  - Coordination Ability: ['High: Highly Coordinated ',' Medium: Partially Coordinated ',' Low: Lack of Coordinated ']
+  - Team_Shared_awareness: ['High: highly consistent understanding ',' Medium: partially consistent ',' Low: serious disagreement ']
+  - Feedback_rops: ['High: Strong feedback drives change ',' Medium: Limited feedback ',' Low: No effect ']
+  - Task_craft: ['High: Actively redefine tasks', 'Medium: Partial adjustments',' Low: No adjustments']
+  - Negative work_rumination: ['High: Strong Reflection on Failure ',' Medium: Limited Reflection ',' Low: No Reflection ']
+  - Approach'avoidanced_dynamics: ['High: obvious approach/avoidance ',' Medium: partial performance ',' Low: no inclination ']
+  - Ai_ empathy_dynamics: ['High: AI strongly displays empathy&user perception ',' Medium: partial display/perception ',' Low: no empathy ']
+  - Emotion  - recognition: ['High: Accurate emotion recognition ',' Medium: Limited recognition ',' Low: Recognition failure ']
+  - Affective_transition: ['High: Strong emotional transfer ',' Medium: Limited transfer ',' Low: No transfer ']
+  - Stress_anxiety_regulation: ['High: significantly reduces stress anxiety ',' Medium: partially relieved ',' Low: no relief or exacerbation ']
+  - Motivation_degagment: ['High: Highly engaged and proactive ',' Medium: Moderately engaged ',' Low: Indifferent and unmotivated ']
+  - Psychologic_Safety: ['High: completely safe ',' Medium: partially safe ',' Low: no sense of security ']
+  - Self efficacy: 'High: Strong Self Efficacy', 'Medium: Partial Confidence', 'Low: No Confidence'
+  - Agey_restoration: ['High: Strong sense of control restored ',' Medium: Partial recovery ',' Low: No sense of control ']
+  - Mortal  - agency: ['High: Actively taking on moral decisions', 'Medium: Limited taking on responsibilities',' Low: No taking on responsibilities']
+  - Responsibility_cap: ['High: Serious ambiguity of responsibility ',' Medium: Partial ambiguity ',' Low: Clear ']
+  - Ethical  - dissonance: ['High: Strong Ethical Conflict ',' Medium: Limited Conflict ',' Low: No Conflict ']
+  - Ai_threat_perceptions: ['High: Strong threat ',' Medium: Partial threat ',' Low: No threat ']
+  - Psychologis_expansion: ['High: Significant Scalability ',' Medium: Limited Scalability ',' Low: No Scalability ']
+
+3. **Remarks**:
+   - It is normal for a piece of data to belong to multiple categories, but one category can only belong to one of high, medium, or low.
+   - The content in the output str should be enclosed in single quotes to prevent parsing errors in the json format.
+
+**Output requirements**:
+  - Output in JSON format, within one line
+  - Contains four fields:
+  "Classification": A list that stores the results of type judgments,
+  "Levels": A dictionary that stores the corresponding levels of judgment results,
+  "Reason": A dictionary that stores the reasons for the corresponding judgment results, requiring input original sentences that support classification and classification levels, The length of the return is unlimited,
+  "Brief": A brief introduction to the article.
+
+**Processing examples**:
+Input Title: "Title of the article"
+Input Summary:"Abstract of the article"
+Output:
+```json
+{
+  "classification": ["class1", "class2"],
+  "levels": {"class1":"low","class2":"high"}
+  "reason": {"class1":"reason", "class2":"reason"},
+  "brief": xxx
+}```
+
+**Input**:
+Title: <TITLE>
+Abstract: <ABSTRACT>
+Kerwords: <KEYWORDS>

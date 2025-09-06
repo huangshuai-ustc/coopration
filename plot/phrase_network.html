@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 1000px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#465ecf", "id": "cognitive_offload", "label": "cognitive_offload", "physics": false, "shape": "dot", "size": 15, "title": "cognitive_offload\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1451", "x": 0, "y": 0}, {"color": "#465ecf", "id": "cognitive_load_management", "label": "cognitive_load_management", "physics": false, "shape": "dot", "size": 15, "title": "cognitive_load_management\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1451", "x": 200, "y": 0}, {"color": "#465ecf", "id": "information_processing_aid", "label": "information_processing_aid", "physics": false, "shape": "dot", "size": 15, "title": "information_processing_aid\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1451", "x": 400, "y": 0}, {"color": "#3f53c6", "id": "ambiguity_reduction", "label": "ambiguity_reduction", "physics": false, "shape": "dot", "size": 15, "title": "ambiguity_reduction\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1331", "x": 0, "y": 100}, {"color": "#3f53c6", "id": "uncertainty_communication", "label": "uncertainty_communication", "physics": false, "shape": "dot", "size": 15, "title": "uncertainty_communication\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1331", "x": 200, "y": 100}, {"color": "#3f53c6", "id": "situation_awareness", "label": "situation_awareness", "physics": false, "shape": "dot", "size": 15, "title": "situation_awareness\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1331", "x": 400, "y": 100}, {"color": "#b40426", "id": "human_ai_interaction", "label": "human_ai_interaction", "physics": false, "shape": "dot", "size": 15, "title": "human_ai_interaction\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 6420", "x": 0, "y": 200}, {"color": "#b40426", "id": "interaction_fluency", "label": "interaction_fluency", "physics": false, "shape": "dot", "size": 15, "title": "interaction_fluency\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 6420", "x": 200, "y": 200}, {"color": "#b40426", "id": "social_presence", "label": "social_presence", "physics": false, "shape": "dot", "size": 15, "title": "social_presence\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 6420", "x": 400, "y": 200}, {"color": "#b40426", "id": "anthropomorphism_effects", "label": "anthropomorphism_effects", "physics": false, "shape": "dot", "size": 15, "title": "anthropomorphism_effects\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 6420", "x": 600, "y": 200}, {"color": "#b40426", "id": "human_machine_teaming", "label": "human_machine_teaming", "physics": false, "shape": "dot", "size": 15, "title": "human_machine_teaming\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 6420", "x": 800, "y": 200}, {"color": "#b40426", "id": "cooperation_competition_dynamics", "label": "cooperation_competition_dynamics", "physics": false, "shape": "dot", "size": 15, "title": "cooperation_competition_dynamics\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 6420", "x": 1000, "y": 200}, {"color": "#b40426", "id": "delegated_decision_making", "label": "delegated_decision_making", "physics": false, "shape": "dot", "size": 15, "title": "delegated_decision_making\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 6420", "x": 1200, "y": 200}, {"color": "#7da0f9", "id": "coordination_ability", "label": "coordination_ability", "physics": false, "shape": "dot", "size": 15, "title": "coordination_ability\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 2304", "x": 0, "y": 300}, {"color": "#7da0f9", "id": "team_shared_awareness", "label": "team_shared_awareness", "physics": false, "shape": "dot", "size": 15, "title": "team_shared_awareness\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 2304", "x": 200, "y": 300}, {"color": "#7da0f9", "id": "feedback_loops", "label": "feedback_loops", "physics": false, "shape": "dot", "size": 15, "title": "feedback_loops\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 2304", "x": 400, "y": 300}, {"color": "#7da0f9", "id": "task_crafting", "label": "task_crafting", "physics": false, "shape": "dot", "size": 15, "title": "task_crafting\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 2304", "x": 600, "y": 300}, {"color": "#7da0f9", "id": "error_recovery_support", "label": "error_recovery_support", "physics": false, "shape": "dot", "size": 15, "title": "error_recovery_support\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 2304", "x": 800, "y": 300}, {"color": "#e5d8d1", "id": "trust_dynamics", "label": "trust_dynamics", "physics": false, "shape": "dot", "size": 15, "title": "trust_dynamics\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 0, "y": 400}, {"color": "#e5d8d1", "id": "trust_calibration", "label": "trust_calibration", "physics": false, "shape": "dot", "size": 15, "title": "trust_calibration\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 200, "y": 400}, {"color": "#e5d8d1", "id": "trust_miscalibration", "label": "trust_miscalibration", "physics": false, "shape": "dot", "size": 15, "title": "trust_miscalibration\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 400, "y": 400}, {"color": "#e5d8d1", "id": "trust_repair_strategies", "label": "trust_repair_strategies", "physics": false, "shape": "dot", "size": 15, "title": "trust_repair_strategies\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 600, "y": 400}, {"color": "#e5d8d1", "id": "algorithmic_attitudes", "label": "algorithmic_attitudes", "physics": false, "shape": "dot", "size": 15, "title": "algorithmic_attitudes\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 800, "y": 400}, {"color": "#e5d8d1", "id": "automation_bias", "label": "automation_bias", "physics": false, "shape": "dot", "size": 15, "title": "automation_bias\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 1000, "y": 400}, {"color": "#e5d8d1", "id": "levels_of_autonomy", "label": "levels_of_autonomy", "physics": false, "shape": "dot", "size": 15, "title": "levels_of_autonomy\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 1200, "y": 400}, {"color": "#e5d8d1", "id": "adaptive_automation", "label": "adaptive_automation", "physics": false, "shape": "dot", "size": 15, "title": "adaptive_automation\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 1400, "y": 400}, {"color": "#e5d8d1", "id": "automation_transparency", "label": "automation_transparency", "physics": false, "shape": "dot", "size": 15, "title": "automation_transparency\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4011", "x": 1600, "y": 400}, {"color": "#6282ea", "id": "bounded_rationality", "label": "bounded_rationality", "physics": false, "shape": "dot", "size": 15, "title": "bounded_rationality\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1902", "x": 0, "y": 500}, {"color": "#6282ea", "id": "decision_heuristics", "label": "decision_heuristics", "physics": false, "shape": "dot", "size": 15, "title": "decision_heuristics\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1902", "x": 200, "y": 500}, {"color": "#6282ea", "id": "anchoring_adjustment", "label": "anchoring_adjustment", "physics": false, "shape": "dot", "size": 15, "title": "anchoring_adjustment\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1902", "x": 400, "y": 500}, {"color": "#6282ea", "id": "bias_mitigation_amplification", "label": "bias_mitigation_amplification", "physics": false, "shape": "dot", "size": 15, "title": "bias_mitigation_amplification\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1902", "x": 600, "y": 500}, {"color": "#6282ea", "id": "error_probability_estimation", "label": "error_probability_estimation", "physics": false, "shape": "dot", "size": 15, "title": "error_probability_estimation\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1902", "x": 800, "y": 500}, {"color": "#eed0c0", "id": "responsibility_allocation", "label": "responsibility_allocation", "physics": false, "shape": "dot", "size": 15, "title": "responsibility_allocation\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4218", "x": 0, "y": 600}, {"color": "#eed0c0", "id": "responsibility_gap", "label": "responsibility_gap", "physics": false, "shape": "dot", "size": 15, "title": "responsibility_gap\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4218", "x": 200, "y": 600}, {"color": "#eed0c0", "id": "ethical_dissonance", "label": "ethical_dissonance", "physics": false, "shape": "dot", "size": 15, "title": "ethical_dissonance\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4218", "x": 400, "y": 600}, {"color": "#eed0c0", "id": "ai_threat_perceptions", "label": "ai_threat_perceptions", "physics": false, "shape": "dot", "size": 15, "title": "ai_threat_perceptions\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4218", "x": 600, "y": 600}, {"color": "#eed0c0", "id": "negative_work_rumination", "label": "negative_work_rumination", "physics": false, "shape": "dot", "size": 15, "title": "negative_work_rumination\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4218", "x": 800, "y": 600}, {"color": "#eed0c0", "id": "approach_avoidance_dynamics", "label": "approach_avoidance_dynamics", "physics": false, "shape": "dot", "size": 15, "title": "approach_avoidance_dynamics\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4218", "x": 1000, "y": 600}, {"color": "#eed0c0", "id": "psychological_expansion", "label": "psychological_expansion", "physics": false, "shape": "dot", "size": 15, "title": "psychological_expansion\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 4218", "x": 1200, "y": 600}, {"color": "#c0d4f5", "id": "affective_transition", "label": "affective_transition", "physics": false, "shape": "dot", "size": 15, "title": "affective_transition\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 3307", "x": 0, "y": 700}, {"color": "#c0d4f5", "id": "stress_anxiety_regulation", "label": "stress_anxiety_regulation", "physics": false, "shape": "dot", "size": 15, "title": "stress_anxiety_regulation\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 3307", "x": 200, "y": 700}, {"color": "#c0d4f5", "id": "motivation_engagement", "label": "motivation_engagement", "physics": false, "shape": "dot", "size": 15, "title": "motivation_engagement\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 3307", "x": 400, "y": 700}, {"color": "#c0d4f5", "id": "psychological_safety", "label": "psychological_safety", "physics": false, "shape": "dot", "size": 15, "title": "psychological_safety\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 3307", "x": 600, "y": 700}, {"color": "#c0d4f5", "id": "self_efficacy", "label": "self_efficacy", "physics": false, "shape": "dot", "size": 15, "title": "self_efficacy\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 3307", "x": 800, "y": 700}, {"color": "#c0d4f5", "id": "agency_restoration", "label": "agency_restoration", "physics": false, "shape": "dot", "size": 15, "title": "agency_restoration\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 3307", "x": 1000, "y": 700}, {"color": "#c0d4f5", "id": "moral_agency", "label": "moral_agency", "physics": false, "shape": "dot", "size": 15, "title": "moral_agency\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 3307", "x": 1200, "y": 700}, {"color": "#3b4cc0", "id": "perceived_fairness", "label": "perceived_fairness", "physics": false, "shape": "dot", "size": 15, "title": "perceived_fairness\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1239", "x": 0, "y": 800}, {"color": "#3b4cc0", "id": "value_alignment", "label": "value_alignment", "physics": false, "shape": "dot", "size": 15, "title": "value_alignment\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1239", "x": 200, "y": 800}, {"color": "#516ddb", "id": "preference_learning", "label": "preference_learning", "physics": false, "shape": "dot", "size": 15, "title": "preference_learning\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1640", "x": 0, "y": 900}, {"color": "#516ddb", "id": "mind_perception", "label": "mind_perception", "physics": false, "shape": "dot", "size": 15, "title": "mind_perception\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1640", "x": 200, "y": 900}, {"color": "#516ddb", "id": "cognition_emotion_interaction", "label": "cognition_emotion_interaction", "physics": false, "shape": "dot", "size": 15, "title": "cognition_emotion_interaction\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1640", "x": 400, "y": 900}, {"color": "#516ddb", "id": "emotion_recognition", "label": "emotion_recognition", "physics": false, "shape": "dot", "size": 15, "title": "emotion_recognition\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1640", "x": 600, "y": 900}, {"color": "#516ddb", "id": "ai_empathy_dynamics", "label": "ai_empathy_dynamics", "physics": false, "shape": "dot", "size": 15, "title": "ai_empathy_dynamics\u003cbr\u003e\u51fa\u73b0\u6b21\u6570: 1640", "x": 800, "y": 900}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "cognitive_offload", "smooth": false, "title": "\u6743\u91cd: 1451", "to": "cognitive_load_management", "value": 1451}, {"arrows": "to", "from": "cognitive_load_management", "smooth": false, "title": "\u6743\u91cd: 1451", "to": "information_processing_aid", "value": 1451}, {"arrows": "to", "from": "ambiguity_reduction", "smooth": false, "title": "\u6743\u91cd: 1331", "to": "uncertainty_communication", "value": 1331}, {"arrows": "to", "from": "uncertainty_communication", "smooth": false, "title": "\u6743\u91cd: 1331", "to": "situation_awareness", "value": 1331}, {"arrows": "to", "from": "human_ai_interaction", "smooth": false, "title": "\u6743\u91cd: 6420", "to": "interaction_fluency", "value": 6420}, {"arrows": "to", "from": "interaction_fluency", "smooth": false, "title": "\u6743\u91cd: 6420", "to": "social_presence", "value": 6420}, {"arrows": "to", "from": "social_presence", "smooth": false, "title": "\u6743\u91cd: 6420", "to": "anthropomorphism_effects", "value": 6420}, {"arrows": "to", "from": "anthropomorphism_effects", "smooth": false, "title": "\u6743\u91cd: 6420", "to": "human_machine_teaming", "value": 6420}, {"arrows": "to", "from": "human_machine_teaming", "smooth": false, "title": "\u6743\u91cd: 6420", "to": "cooperation_competition_dynamics", "value": 6420}, {"arrows": "to", "from": "cooperation_competition_dynamics", "smooth": false, "title": "\u6743\u91cd: 6420", "to": "delegated_decision_making", "value": 6420}, {"arrows": "to", "from": "coordination_ability", "smooth": false, "title": "\u6743\u91cd: 2304", "to": "team_shared_awareness", "value": 2304}, {"arrows": "to", "from": "team_shared_awareness", "smooth": false, "title": "\u6743\u91cd: 2304", "to": "feedback_loops", "value": 2304}, {"arrows": "to", "from": "feedback_loops", "smooth": false, "title": "\u6743\u91cd: 2304", "to": "task_crafting", "value": 2304}, {"arrows": "to", "from": "task_crafting", "smooth": false, "title": "\u6743\u91cd: 2304", "to": "error_recovery_support", "value": 2304}, {"arrows": "to", "from": "trust_dynamics", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "trust_calibration", "value": 4011}, {"arrows": "to", "from": "trust_calibration", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "trust_miscalibration", "value": 4011}, {"arrows": "to", "from": "trust_miscalibration", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "trust_repair_strategies", "value": 4011}, {"arrows": "to", "from": "trust_repair_strategies", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "algorithmic_attitudes", "value": 4011}, {"arrows": "to", "from": "algorithmic_attitudes", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "automation_bias", "value": 4011}, {"arrows": "to", "from": "automation_bias", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "levels_of_autonomy", "value": 4011}, {"arrows": "to", "from": "levels_of_autonomy", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "adaptive_automation", "value": 4011}, {"arrows": "to", "from": "adaptive_automation", "smooth": false, "title": "\u6743\u91cd: 4011", "to": "automation_transparency", "value": 4011}, {"arrows": "to", "from": "bounded_rationality", "smooth": false, "title": "\u6743\u91cd: 1902", "to": "decision_heuristics", "value": 1902}, {"arrows": "to", "from": "decision_heuristics", "smooth": false, "title": "\u6743\u91cd: 1902", "to": "anchoring_adjustment", "value": 1902}, {"arrows": "to", "from": "anchoring_adjustment", "smooth": false, "title": "\u6743\u91cd: 1902", "to": "bias_mitigation_amplification", "value": 1902}, {"arrows": "to", "from": "bias_mitigation_amplification", "smooth": false, "title": "\u6743\u91cd: 1902", "to": "error_probability_estimation", "value": 1902}, {"arrows": "to", "from": "responsibility_allocation", "smooth": false, "title": "\u6743\u91cd: 4218", "to": "responsibility_gap", "value": 4218}, {"arrows": "to", "from": "responsibility_gap", "smooth": false, "title": "\u6743\u91cd: 4218", "to": "ethical_dissonance", "value": 4218}, {"arrows": "to", "from": "ethical_dissonance", "smooth": false, "title": "\u6743\u91cd: 4218", "to": "ai_threat_perceptions", "value": 4218}, {"arrows": "to", "from": "ai_threat_perceptions", "smooth": false, "title": "\u6743\u91cd: 4218", "to": "negative_work_rumination", "value": 4218}, {"arrows": "to", "from": "negative_work_rumination", "smooth": false, "title": "\u6743\u91cd: 4218", "to": "approach_avoidance_dynamics", "value": 4218}, {"arrows": "to", "from": "approach_avoidance_dynamics", "smooth": false, "title": "\u6743\u91cd: 4218", "to": "psychological_expansion", "value": 4218}, {"arrows": "to", "from": "affective_transition", "smooth": false, "title": "\u6743\u91cd: 3307", "to": "stress_anxiety_regulation", "value": 3307}, {"arrows": "to", "from": "stress_anxiety_regulation", "smooth": false, "title": "\u6743\u91cd: 3307", "to": "motivation_engagement", "value": 3307}, {"arrows": "to", "from": "motivation_engagement", "smooth": false, "title": "\u6743\u91cd: 3307", "to": "psychological_safety", "value": 3307}, {"arrows": "to", "from": "psychological_safety", "smooth": false, "title": "\u6743\u91cd: 3307", "to": "self_efficacy", "value": 3307}, {"arrows": "to", "from": "self_efficacy", "smooth": false, "title": "\u6743\u91cd: 3307", "to": "agency_restoration", "value": 3307}, {"arrows": "to", "from": "agency_restoration", "smooth": false, "title": "\u6743\u91cd: 3307", "to": "moral_agency", "value": 3307}, {"arrows": "to", "from": "perceived_fairness", "smooth": false, "title": "\u6743\u91cd: 1239", "to": "value_alignment", "value": 1239}, {"arrows": "to", "from": "preference_learning", "smooth": false, "title": "\u6743\u91cd: 1640", "to": "mind_perception", "value": 1640}, {"arrows": "to", "from": "mind_perception", "smooth": false, "title": "\u6743\u91cd: 1640", "to": "cognition_emotion_interaction", "value": 1640}, {"arrows": "to", "from": "cognition_emotion_interaction", "smooth": false, "title": "\u6743\u91cd: 1640", "to": "emotion_recognition", "value": 1640}, {"arrows": "to", "from": "emotion_recognition", "smooth": false, "title": "\u6743\u91cd: 1640", "to": "ai_empathy_dynamics", "value": 1640}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

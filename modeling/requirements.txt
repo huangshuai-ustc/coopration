@@ -1,0 +1,13 @@
+# 基础数据处理
+pandas>=1.3
+
+# Transformers 和模型支持
+transformers>=4.30
+sentence-transformers>=2.2.2
+
+# Key phrase 提取
+keybert>=0.7.0
+
+# spaCy 和英语模型
+spacy>=3.7.0
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
