@@ -111,9 +111,43 @@ Algorithm Perceptions, Attitudes & Psychological Mechanisms
 
 这些文章的研究涉及方方面面，对一些现象得出了自己的一些观点，为此总结出53个方向，并想要获取这些文章对着53个方向的支持与否。
 
-想要达成这个目的，可以采用prompt工程，将标题、摘要和关键词加提示词一并交给deepseekv3进行判断具体提示词如下
+想要达成这个目的，可以采用prompt工程，将标题、摘要和关键词加提示词一并交给deepseekv3进行判断。
+
+为什么prompt可以完成这个任务，这取决于prompt的一些特性：
+
+Prompt工程技术的应用核心在于**通过系统化设计输入指令（prompt）来优化人工智能模型的输出质量、控制行为模式并扩展应用场景**。其技术价值不依赖于具体指令内容，而是体现在以下抽象层面的应用逻辑中：
+
+### 1. **输出质量优化**
+
+- **结构化控制**：通过定义输出格式（如JSON、列表、分点论述）实现标准化响应，例如要求模型以"问题-解决方案-验证步骤"的三段式结构回答技术问题。
+- **确定性增强**：使用分隔符（如```、###）明确指令边界，减少模型对上下文的误读，提升复杂任务的处理稳定性。
+- **多阶段推理**：通过分步提示（Chain-of-Thought）引导模型进行逻辑拆解，显著提升数学推理、因果分析等复杂任务的准确率。
+
+### 2. **行为模式约束**
+
+- **角色模拟**：通过设定虚拟身份（如"资深法律顾问"、"儿童故事作家"）激活模型特定领域的知识图谱，实现专业场景的垂直化适配。
+- **伦理防火墙**：嵌入否定提示（如"避免使用歧视性语言"）或强制确认步骤（如"请先验证信息来源可靠性"）构建安全边界，降低有害内容生成风险。
+- **风格迁移**：利用示例提示（Few-shot Learning）定义输出风格（如学术写作、营销文案），实现跨领域风格的无监督迁移。
+
+### 3. **交互范式创新**
+
+- **动态提示链**：构建多轮对话的提示序列，通过上下文记忆实现复杂任务的分解执行，例如先进行需求分析再生成代码框架。
+- **自我修正机制**：设计包含验证环节的提示结构（如"生成答案后，用3个角度检查其合理性"），利用模型自反思能力提升输出可靠性。
+- **元提示优化**：通过提示生成提示（Prompt of Prompts）实现自动化提示工程，例如用模型评估不同提示策略的效果并迭代优化。
+
+### 4. 能力扩展框架
+
+- **工具调用集成**：在提示中嵌入函数签名（如"调用weather_api(city:str)->dict"），将模型转化为API编排器，实现外部工具的智能调用。
+- **多模态协同**：设计跨模态提示（如"根据图像描述生成技术文档"），打通文本与图像、音频等模态的语义对齐通道。
+- **长文本处理**：通过滑动窗口提示（Sliding Window）或摘要-扩展提示（Summarize-Expand）实现超长文档的渐进式处理。
+
+### 技术本质
+
+Prompt工程本质是**对模型潜在能力的显式激活**，通过设计输入空间的几何结构（如提示向量分布）来引导输出空间的概率分布。
 
 > 注意：prompt工程无需训练集和测试集，在确保prompt内容和大语言模型的能力值得信任的时候，就可以直接使用该模式得到结果。那该如何判断prompt内容和大语言模型的能力是否值得信任呢，prompt内容值得信任要看内容是否准确表达出自己的意思和目的，并且考虑到特殊情况和必要的强调信息；大语言模型的能力需要在自己的prompt跑出结果后人为的去判断，用于量化的指标可以是准确率和召回率，放到我们的例子里面准确率就是一个文章输出了43个方向，其中30个是文章应该有的，那么准确率就是30/43，召回率是一篇文章本来有33个方向，但是返回的43个方向里面只有30个是符合的，这时候召回率就是30/33，一般来说准召越高越好。
+
+具体提示词如下：
 
 ```txt
 Please perform two tasks based on the following article content:
@@ -415,10 +449,39 @@ print("处理完成，结果已保存到 53_full_classification.csv")
 
 链式关系图
 
+为探究53个方向的互相作用，本文统计了同一篇文章下共同出现的具有递进关系的方向，这些方向可以组成一个研究的链条，可以用于揭示方向间的相互作用。为此本文将这些机制分为十个大类，它们按序号的增长有着一定的递进趋势，可以按照这个角度挖掘方向之间的递进关系。
+
+```txt
+1.起点（认知与信息处理）--1个群体
+从 cognitive_offload（认知卸载）开始，用户借助外部系统降低心理负荷，通过 cognitive_load_management（认知负荷管理）与 information_processing_aid（信息处理辅助），逐步进入更清晰的任务理解。
+2.减少不确定性---1个群体 
+接着 ambiguity_reduction（模糊性降低）需要 uncertainty_communication（不确定性沟通）来补充，使用户在不完全信息环境中提升 situation_awareness（情境感知）。
+3.决策机制与偏差修正
+在此基础上，受限于 bounded_rationality（有限理性），人依赖 decision_heuristics（决策启发式）并通过 anchoring_adjustment（锚定调整）、bias_mitigation_amplification（偏差缓解/放大）与 error_probability_estimation（错误概率估计）来改善判断。
+4.学习与感知
+这些过程推动 preference_learning（偏好学习）和 mind_perception（心智感知），进一步引发 cognition_emotion_interaction（认知-情绪交互）、emotion_recognition（情绪识别）与 ai_empathy_dynamics（AI共情动态）。
+5.情绪与动机调节
+通过 affective_transition（情绪转变）、stress_anxiety_regulation（压力焦虑调节），用户逐步实现 motivation_engagement（动机参与）、psychological_safety（心理安全）与 self_efficacy（自我效能），并由此走向 agency_restoration（能动性恢复）与 moral_agency（道德能动性）。
+6.责任与伦理困境
+进一步出现 responsibility_allocation（责任分配）、responsibility_gap（责任缺口）、ethical_dissonance（伦理失调），以及 ai_threat_perceptions（AI威胁感知）、negative_work_rumination（负性工作反刍），触发 approach_avoidance_dynamics（趋避动态）和 psychological_expansion（心理扩展）。
+7.人机交互与协作
+随后进入 human_ai_interaction（人机交互）、interaction_fluency（交互流畅性）、social_presence（社会临场感）、anthropomorphism_effects（拟人化效应），再到 human_machine_teaming（人机组队）、cooperation_competition_dynamics（合作竞争动态）、delegated_decision_making（委托决策）。
+8.团队与任务动态
+在群体层面，形成 coordination_ability（协调能力）、team_shared_awareness（团队共享认知）、feedback_loops（反馈循环）、task_crafting（任务塑造），并依赖 error_recovery_support（错误恢复支持）来稳定运行。
+9.信任与自动化水平
+由此引发 trust_dynamics（信任动态）、trust_calibration（信任校准）、trust_miscalibration（信任失准）与 trust_repair_strategies（信任修复策略）。这些机制受到 algorithmic_attitudes（算法态度）、automation_bias（自动化偏差）以及 levels_of_autonomy（自主性水平）、adaptive_automation（自适应自动化）、automation_transparency（自动化透明性）的调节。
+10.公平与价值整合
+最终落脚到 perceived_fairness（感知公平）与 value_alignment（价值一致性），决定人机协作在组织与社会层面的长期合法性与可接受性。
+```
+
+
+
 ![chain](https://raw.githubusercontent.com/huangshuai-ustc/images/main/trust/屏幕截图 2025-09-06 190524.png)
 
-
-
 九宫格图
+
+同时这53个方向还可以分成机制类型和分析层级的分类来研究，按照其不同种类不同程度可以划分成九类
+
+原理就是按你给的53个机制分别隶属于哪个格子，然后对号入座并且统计每个的数量，画成下面的表格
 
 ![nine](https://raw.githubusercontent.com/huangshuai-ustc/images/main/trust/nine.png)
