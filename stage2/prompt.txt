@@ -1,0 +1,34 @@
+Please perform two tasks based on the following article content:
+1.**Type determination**: Based on whether my input mentions or is related to the following categories and descriptions, determine the research direction of the article, such as human-ai-intersection, situation-awareness, etc.
+
+2.**Level determination**:
+Please determine the category level of the current article and divide it into "high", "medium", and "low" from high to low. If the article has multiple categories, please provide the categories and corresponding levels separately.
+
+3.**Remarks**:
+-It is normal for a piece of data to belong to multiple categories, but a category can only belong to one of high, medium, or low.
+-The content in the output str should be enclosed in single quotes to prevent parsing errors in JSON format.
+
+**Output requirements**:
+-Output in JSON format, no more than one line
+-Contains four fields:
+"Classification": a list of storage type judgment results,
+"Level": a dictionary that stores the corresponding level judgment results,
+"Reason": a dictionary that stores the reasons for the corresponding judgment results. It requires inputting original sentences that support classification and classification levels, and the length of the returned sentence is not limited,
+"Brief": A brief overview of the article.
+
+**Processing examples**:
+Input Title: "Title of the article"
+Input Summary:"Abstract of the article"
+Output:
+```json
+{
+  "classification": ["class1", "class2"],
+  "levels": {"class1":"low","class2":"high"}
+  "reason": {"class1":"reason", "class2":"reason"},
+  "brief": xxx
+}```
+
+**Input**:
+Title: <TITLE>
+Abstract: <ABSTRACT>
+Kerwords: <KEYWORDS>

@@ -109,7 +109,7 @@ Algorithm Perceptions, Attitudes & Psychological Mechanisms
 
 # 53个高中低分类
 
-这些文章的研究涉及方方面面，对一些现象得出了自己的一些观点，为此总结出53个方向，并想要获取这些文章对着53个方向的支持与否。
+这些文章的研究涉及方方面面，对一些现象得出了自己的一些观点，这里使用prompt工程让大模型总结一下文章中研究的观点
 
 想要达成这个目的，可以采用prompt工程，将标题、摘要和关键词加提示词一并交给deepseekv3进行判断。
 
@@ -146,6 +146,47 @@ Prompt工程技术的应用核心在于**通过系统化设计输入指令（pro
 Prompt工程本质是**对模型潜在能力的显式激活**，通过设计输入空间的几何结构（如提示向量分布）来引导输出空间的概率分布。
 
 > 注意：prompt工程无需训练集和测试集，在确保prompt内容和大语言模型的能力值得信任的时候，就可以直接使用该模式得到结果。那该如何判断prompt内容和大语言模型的能力是否值得信任呢，prompt内容值得信任要看内容是否准确表达出自己的意思和目的，并且考虑到特殊情况和必要的强调信息；大语言模型的能力需要在自己的prompt跑出结果后人为的去判断，用于量化的指标可以是准确率和召回率，放到我们的例子里面准确率就是一个文章输出了43个方向，其中30个是文章应该有的，那么准确率就是30/43，召回率是一篇文章本来有33个方向，但是返回的43个方向里面只有30个是符合的，这时候召回率就是30/33，一般来说准召越高越好。
+
+用到的prompt如下：
+
+```txt
+Please perform two tasks based on the following article content:
+1.**Type determination**: Based on whether my input mentions or is related to the following categories and descriptions, determine the research direction of the article, such as human-ai-intersection, situation-awareness, etc.
+
+2.**Level determination**:
+Please determine the category level of the current article and divide it into "high", "medium", and "low" from high to low. If the article has multiple categories, please provide the categories and corresponding levels separately.
+
+3.**Remarks**:
+-It is normal for a piece of data to belong to multiple categories, but a category can only belong to one of high, medium, or low.
+-The content in the output str should be enclosed in single quotes to prevent parsing errors in JSON format.
+
+**Output requirements**:
+-Output in JSON format, no more than one line
+-Contains four fields:
+"Classification": a list of storage type judgment results,
+"Level": a dictionary that stores the corresponding level judgment results,
+"Reason": a dictionary that stores the reasons for the corresponding judgment results. It requires inputting original sentences that support classification and classification levels, and the length of the returned sentence is not limited,
+"Brief": A brief overview of the article.
+
+**Processing examples**:
+Input Title: "Title of the article"
+Input Summary:"Abstract of the article"
+Output:
+```json
+{
+  "classification": ["class1", "class2"],
+  "levels": {"class1":"low","class2":"high"}
+  "reason": {"class1":"reason", "class2":"reason"},
+  "brief": xxx
+}```
+
+**Input**:
+Title: <TITLE>
+Abstract: <ABSTRACT>
+Kerwords: <KEYWORDS>
+```
+
+大语言模型会根据输入的标题、摘要和关键字给出它判断出来的研究方向和对应等级。得到结果后，经过人为对结果进行评判，筛选出契合本文研究的内容，总结出53个方向，随机获取这些文章对着53个方向的支持与否。
 
 具体提示词如下：
 
